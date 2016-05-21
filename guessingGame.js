@@ -1,8 +1,7 @@
 /* **** Global Variables **** */
 // try to elminate these global variables in your project, these are here just to start.
 
-var playersGuess = playersGuessSubmission();
-    winningNumber = generateWinningNumber();
+var winningNumber = generateWinningNumber();
 
 
 
@@ -16,21 +15,17 @@ function generateWinningNumber(min, max){
 
 // Fetch the Players Guess
 
-
 function playersGuessSubmission(){
 	var playersGuess = +$('#playersGuess').val();
+	console.log(playersGuess);
+	$('#playersGuess').val('');
 }
 
-
-$(document).ready(function(){
-	$('#guessButton').on('click', playersGuessSubmission);	
-});
-
-$(document).ready(function(){
-	$('#giveUpButton').on('click', function() {
-		$(this).find('h2').slideDown();
-	});	
-});
+// $(document).ready(function(){
+// 	$('#giveUpButton').on('click', function() {
+// 		$(this).find('h2').slideDown();
+// 	});	
+// });
 
 // Determine if the next guess should be a lower or higher number
 
@@ -39,20 +34,24 @@ function lowerOrHigher(){
 }
 
 // Check if the Player's Guess is the winning number 
-var numberOfGuesses = 0;
-var listOfGuesses = [];
 
-//Figure it out!
-
-function checkGuess(){
+function checkGuess(playersGuess){
+	var numberOfGuesses = 0;
+	var listOfGuesses = [];
+	console.log("numberOfGuesses: " + numberOfGuesses);
+	console.log("listOfGuesses: " + listOfGuesses);
+	console.log("playersGuess: " + playersGuess);
+	console.log("winningNumber: " + winningNumber);
 	if (playersGuess === winningNumber) {
-		return "You won!"
+		$('h2').html("You Won!");
 	} else {
 		if (listOfGuesses.indexOf(playersGuess) === -1) {
 			numberOfGuesses += 1;
 			listOfGuesses.push(playersGuess);
+			$('h2').html("Try Again!");
+		} else {
+			$('h2').html("You already guessed that one, silly bean!");
 		}
-		return "Try again!"
 	}
 }
 
@@ -72,4 +71,31 @@ function playAgain(){
 
 
 /* **** Event Listeners/Handlers ****  */
+
+$(document).ready(function() {
+	$('#guessButton').on('click', playersGuessSubmission);
+	$('#guessButton').on('click', checkGuess);
+	$('#giveUpButton').on('click', function() {
+		$('h2').html("You Lost!")
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

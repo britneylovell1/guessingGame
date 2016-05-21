@@ -41,35 +41,13 @@ a:focus {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
 
-h2 {
+/*h2 {
     display: none;
-}
-
-p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.text-faded {
-    color: rgba(255,255,255,.7);
-}
-
-section {
-    padding: 100px 0;
-}
-
-aside {
-    padding: 50px 0;
-}
+}*/
 
 header {
     position: relative;
@@ -141,30 +119,14 @@ header .header-content .header-content-inner p {
 
 /* Button Style */
 
-.btn-primary {
-    border-color: #f05f40;
-    color: #fff;
-    background-color: #0099cc;/*#f05f40;*/
-    -webkit-transition: all .35s;
-    -moz-transition: all .35s;
-    transition: all .35s;
-}
-
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus,
 .btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
+.btn-primary.active {
     border-color: #ed431f;
     color: #fff;
     background-color: #ee4b28;
-}
-
-.btn-primary:active,
-.btn-primary.active,
-.open > .dropdown-toggle.btn-primary {
-    background-image: none;
 }
 
 .btn {
@@ -173,32 +135,13 @@ header .header-content .header-content-inner p {
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;
-}
-
-.btn-xl {
     padding: 15px 30px;
-}
-
-::-moz-selection {
-    text-shadow: none;
+    border-color: #f05f40;
     color: #fff;
-    background: #222;
-}
-
-::selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
-}
-
-img::selection {
-    color: #fff;
-    background: 0 0;
-}
-
-img::-moz-selection {
-    color: #fff;
-    background: 0 0;
+    background-color: #0099cc;/*#f05f40;*/
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
 }
 
 body {
