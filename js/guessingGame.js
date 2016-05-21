@@ -18,12 +18,12 @@ function generateWinningNumber(min, max){
 
 
 function playersGuessSubmission(){
-	return $('#playersGuess')
+	var playersGuess = +$('#playersGuess').val();
 }
 
 
 $(document).ready(function(){
-	$('').on('click', playersGuessSubmission());	
+	$('#guessButton').on('click', playersGuessSubmission);	
 });
 
 
