@@ -18,7 +18,6 @@ $(document).ready(function() {
 
 	function playersGuessSubmission(){
 		playersGuess = +$('#playersGuess').val();
-		// console.log(playersGuess);
 		$('#playersGuess').val('');
 	}
 
@@ -26,7 +25,6 @@ $(document).ready(function() {
 	// Determine if the next guess should be a lower or higher number
 
 	function lowerOrHigher(){
-		console.log('entered into lowerOrHigher');
 		var difference = winningNumber - playersGuess;
 		var distance = Math.floor(difference/5) * 5;
 		if (difference > 0) {
@@ -39,34 +37,39 @@ $(document).ready(function() {
 
 
 	function guessMessage(){
-		// console.log('entered into guessMessage');
 		var direction = "";
 		if (lowerOrHigher() > 0) {
 			direction = "lower"
 		} else if (lowerOrHigher() < 0) {
 			direction = "higher"
 		}
-		return "Your guess is " + direction + " and within " + Math.abs(lowerOrHigher()) + " digits of the winning number!"
+		return "Your guess is " + direction + " and within " 
+			+ Math.abs(lowerOrHigher()) + " digits of the winning number!"
 	}
 
 
 	// Check if the Player's Guess is the winning number 
 
 	function checkGuess(){
-		console.log("numberOfGuesses: " + numberOfGuesses);
-		console.log("listOfGuesses: " + listOfGuesses);
-		console.log("playersGuess: " + playersGuess);
-		console.log("winningNumber: " + winningNumber);
-		if (playersGuess === winningNumber) {
-			$('#userMessage').html("You Won!");
-		} else if (listOfGuesses.indexOf(playersGuess) === -1) {
-			numberOfGuesses += 1;
-			listOfGuesses.push(playersGuess);
-			console.log('entered in elif');
-			var message = guessMessage();
-			$('#userMessage').html(message);
+		if (numberOfGuesses > 3) {
+			$('#userMessage').html("Bummer! You didn't win! Play again!");
 		} else {
-			$('#userMessage').html("You already guessed that one, silly bean!");
+
+			if (playersGuess === winningNumber) {
+				$('#userMessage').html("You Won!");
+				$('header').css("background-image", "url(../guessingGame/img/winner-1.jpg)");
+
+			} else if (listOfGuesses.indexOf(playersGuess) === -1) {
+				numberOfGuesses += 1;
+				listOfGuesses.push(playersGuess);
+
+				var message = guessMessage() + " You've got " 
+					+ (5 - numberOfGuesses) + " chances left.";
+				$('#userMessage').html(message);
+
+			} else {
+				$('#userMessage').html("You already guessed that one, silly bean!");
+			}
 		}
 	}
 
@@ -82,8 +85,15 @@ $(document).ready(function() {
 	// Allow the "Player" to Play Again
 
 	function playAgain(){
-		// add code here
+		winningNumber = generateWinningNumber();
+		playersGuess = 0;
+		numberOfGuesses = 0;
+		listOfGuesses = [];
+		$('#userMessage').html("");
+		$('header').css("background-image", "url(../guessingGame/img/header.jpg)");
 	}
+
+	
 
 
 	/* **** Event Listeners/Handlers ****  */
@@ -91,6 +101,16 @@ $(document).ready(function() {
 	$('#guessButton').on('click', playersGuessSubmission);
 	$('#guessButton').on('click', checkGuess);
 	$('#giveUpButton').on('click', provideHint);
+	$('#playAgainButton').on('click', playAgain);
+
+	// Return Key
+	$('#playersGuess').keypress(function(event) {
+		 var key = event.which;
+		 if(key == 13) {
+		    $('#guessButton').click();
+		    return false;  
+		 }
+	});   
 
 });
 
