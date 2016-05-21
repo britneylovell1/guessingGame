@@ -32,6 +32,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- My links -->
+    <script src="jquery-1.12.4.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -42,15 +45,18 @@
             <div class="header-content-inner">
                 <h1>Guess My Number!</h1>
                 <hr>
-                <blockquote> "You only get one shot, do not miss your chance to blow. This opportunity comes once in a lifetime."<footer>- The great prophet, Eminem</footer></blockquote>
+                <blockquote> "You only get one shot, do not miss your chance to blow. This opportunity comes once in a lifetime."<footer> The great prophet, Eminem</footer></blockquote>
             </div>
             <div class = "header-content-inner">
                 <input type="text" id="playersGuess" placeholder="Make A Guess">
                 <a class="btn btn-primary btn-xl page-scroll" id="guessButton">Guess</a>
-                <a class="btn btn-primary btn-xl page-scroll">Give Up?</a>
+                <a class="btn btn-primary btn-xl page-scroll" id='giveUpButton'>Give Up?</a>
+                <h2>Keep Trying!</h2>
             </div>
         </div>
     </header>
+
+
 
     <script src='guessingGame.js'></script>
 </body>
