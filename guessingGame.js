@@ -53,6 +53,9 @@ $(document).ready(function() {
 	function checkGuess(){
 		if (numberOfGuesses > 3) {
 			$('#userMessage').html("Bummer! You didn't win! Play again!");
+			//Image curtosy of http://wallpapercave.com/w/VC5dIf8
+			$('header').css("background-image", "url(../guessingGame/img/loser.jpg)");
+			$('header').css("color", "#cc0000");
 		} else {
 
 			if (playersGuess === winningNumber) {
@@ -90,7 +93,9 @@ $(document).ready(function() {
 		numberOfGuesses = 0;
 		listOfGuesses = [];
 		$('#userMessage').html("");
+		// Image curtosy of http://freedesignfile.com/146989-colored-flag-with-confetti-holiday-background-04/
 		$('header').css("background-image", "url(../guessingGame/img/header.jpg)");
+		$('header').css("color", "#fff");
 	}
 
 	

@@ -55,8 +55,8 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
+    /*Image curtosy of https://www.google.com/imgres?imgurl=http%3A%2F%2Fstatic.squarespace.com%2Fstatic%2F52d6d1ede4b0b322e9c7a2ea%2Ft%2F5453a32ce4b04718b2f68cad%2F1414767404779%2FBif.jpg&imgrefurl=http%3A%2F%2Fwww.everymoviehasalesson.com%2F&docid=jV7eyDmBFH9_aM&tbnid=BKaayC-qyU55iM%3A&w=4288&h=2848&safe=active&bih=801&biw=1237&ved=0ahUKEwjcpIr1rOzMAhUUTWMKHZHJCe0QMwgiKAYwBg&iact=mrc&uact=8*/
     background-image: url(../img/header.jpg);
-    /*background-image: url(../img/winner-1.jpg); */
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
